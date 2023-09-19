@@ -1,6 +1,7 @@
 import './App.css';
 import {Route, Routes} from 'react-router-dom';
-import MainPage from './sections/MainPage';
+import MainPage from './pages/MainPage';
+import AllProducts from './pages/AllProducts';
 import { useState } from 'react';
 
 
@@ -10,10 +11,11 @@ function App() {
 
   return (
     <div className="relative">
-      {/* <Routes>
-        <Route path='/' element={<MainPage/>}></Route>
-      </Routes> */}
-      <MainPage openNav={openNav} setOpenNav={setOpenNav} />
+      <Routes>
+        <Route path='/' element={<MainPage openNav={openNav} setOpenNav={setOpenNav} />}></Route>
+        <Route path='/AllProducts' element={<AllProducts openNav={openNav} setOpenNav={setOpenNav} />}></Route>
+      </Routes>
+      
     </div>
   );
 }
