@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import ProductCard from '../components/ProductCard'
 import CategoryButton from '../components/CategoryButton'
+import Filter from '../components/Filter'
 
 function AllProducts({openNav, setOpenNav}) {
 
@@ -12,12 +13,7 @@ function AllProducts({openNav, setOpenNav}) {
         <Navbar openNav={openNav} setOpenNav={setOpenNav} />
         <div className='w-[90vw] flex flex-col items-center lg:items-start' >
             <h1 className='text-center lg:text-left my-6 font-bold text-[24px]' >Nos Produits</h1>
-            <div className='hidden gap-5 my-5 lg:flex' >
-                <CategoryButton category='Tous les produits' />
-                <CategoryButton category='Solution injectable' />
-                <CategoryButton category='Solution orale' />
-                <CategoryButton category='Vaccins' />
-            </div>
+            <Filter/>
             <div className='flex flex-wrap justify-center gap-4 mx-auto lg:justify-start' >
                 {cards.map(card=>{
                     return(

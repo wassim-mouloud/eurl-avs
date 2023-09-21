@@ -11,7 +11,6 @@ function Why() {
                 <Reason icon='support' title='Service Clientèle Exceptionnel' paragraph='Notre équipe est là pour répondre à vos questions et vous aider à choisir les produits adaptés. Explorez notre site pour découvrir notre catalogue, des informations utiles pour les vétérinaires, et bien plus. Merci de nous faire confiance pour la santé de vos animaux.'/>
                 <Reason icon='algeria' title='Distribution Nationale' paragraph='Notre réseau de distribution national nous permet de livrer rapidement et efficacement nos produits à travers tout le pays. Où que vous soyez, nous sommes là pour vous.' />
                 <Reason icon='delivery' title='Livraison Facile' paragraph='Commandez en ligne et recevez vos médicaments vétérinaires chez vous ou dans votre clinique.'/>
-
             </div>
         </div>
     </div>

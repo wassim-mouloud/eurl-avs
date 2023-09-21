@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import ProduitsUne from '../components/ProduitsUne'
 import Why from '../components/Why'
+import Contact from '../components/Contact'
 
 function MainPage({openNav, setOpenNav}) {
 
@@ -13,6 +14,7 @@ function MainPage({openNav, setOpenNav}) {
         <Navbar openNav={openNav} setOpenNav={setOpenNav} />
         <Hero/>
         <Why/>
+        <Contact/>
     </div>
   )
 }
