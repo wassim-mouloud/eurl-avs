@@ -98,7 +98,7 @@ function Navbar({ openNav, setOpenNav }) {
               Rechercher
             </p>
           </a>
-          <a href="#Contact">
+          <a href="#Contact" onClick={() => setOpenNav(false)}>
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 delay-200 lg:delay-0 ${
                 openNav ? "translate-x-0" : "translate-x-[-200%] lg:translate-x-0"
