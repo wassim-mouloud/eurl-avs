@@ -27,9 +27,8 @@ function AddProduct({openNav, setOpenNav, productsCollectionRef, getProducts}) {
     nameRef.current.value=''
     categoryRef.current.value=''
     descriptionRef.current.value=''
+    alert("Produit ajouté avec succès")  }
     getProducts()
-    alert("Produit ajouté avec succès")
-  }
 
  
 
