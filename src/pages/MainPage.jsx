@@ -10,7 +10,7 @@ function MainPage({openNav, setOpenNav}) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className='h-[400vh]' >
+    <div className='' >
         <Navbar openNav={openNav} setOpenNav={setOpenNav} />
         <Hero/>
         <Why/>

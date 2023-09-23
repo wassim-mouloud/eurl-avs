@@ -34,10 +34,10 @@ function Navbar({ openNav, setOpenNav }) {
 
 
   return (
-    <div className={`bg-white ${openSearch?'lg:bg-[#f5f5f7] h-screen':''}  transition-all duration-[700ms] hover:flex-col gap-3 ${openSearch?'h-400px':'h-[100px]'}`} >
+    <div className={`bg-white ${openSearch?'lg:bg-[#f5f5f7] h-screen':''}  transition-all duration-[700ms] hover:flex-col gap-3 ${openSearch?'h-400px':'h-[100px]'} z-[99]`} >
       <div className="relative h-[100px] w-screen  flex p-4 lg:p-3 justify-between items-center ">
         <img
-          className="h-[50px] ml-5 md:h-[70px] lg:h-[80px] z-[99] p-1"
+          className="h-[50px] ml-5 md:h-[60px] z-[99] p-1"
           src="/images/avs.png"
           alt=""
         />
@@ -89,7 +89,7 @@ function Navbar({ openNav, setOpenNav }) {
               Nos produits
             </p>
           </Link>
-          <a href="" onClick={() => setOpenSearch(!openSearch)}>
+          <a href="#Rechercher" onClick={() => setOpenSearch(!openSearch)}>
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 delay-100 lg:delay-0 ${
                 openNav ? "translate-x-0" : "translate-x-[-200%] lg:translate-x-0"

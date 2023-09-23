@@ -9,7 +9,7 @@ function ContactCard({img, title, detail, href}) {
             </div>
             <div className='flex flex-col items-center gap-3' >
                 <p className='font-semibold text-[22px] tracking-[2px]' >{title}</p>
-                <p className='font-medium tracking-[1px]' >{detail}</p>
+                <p className='font-medium tracking-[1px] text-center' >{detail}</p>
             </div>
         </div>
     </a>
