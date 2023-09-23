@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../App.css";
 import {motion} from 'framer-motion'
+import {Link} from 'react-router-dom'
 function Navbar({ openNav, setOpenNav }) {
 
   const [openSearch, setOpenSearch]= useState(false)
@@ -70,7 +71,7 @@ function Navbar({ openNav, setOpenNav }) {
             <img src="/images/search.png" alt="" className="w-7 h-7" />
             <input ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#17a841] text-black font-semibold  text-[20px]  p-4  `}/>
           </div>
-          <a href="#Acceuil" onClick={() => setOpenNav(false)} className="" >
+          <Link to='/' onClick={() => setOpenNav(false)} className="" >
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 ${
                 openNav ? "translate-x-0" : "translate-x-[-300%] lg:translate-x-0"
@@ -78,8 +79,8 @@ function Navbar({ openNav, setOpenNav }) {
             >
               Accueil
             </p>
-          </a>
-          <a href="#Programme" onClick={() => setOpenNav(false)}>
+          </Link>
+          <Link to='/AllProducts' onClick={() => setOpenNav(false)}>
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 delay-100 lg:delay-0 ${
                 openNav ? "translate-x-0" : "translate-x-[-200%] lg:translate-x-0"
@@ -87,8 +88,8 @@ function Navbar({ openNav, setOpenNav }) {
             >
               Nos produits
             </p>
-          </a>
-          <a href="#Rechercher" onClick={() => setOpenSearch(!openSearch)}>
+          </Link>
+          <a href="" onClick={() => setOpenSearch(!openSearch)}>
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 delay-100 lg:delay-0 ${
                 openNav ? "translate-x-0" : "translate-x-[-200%] lg:translate-x-0"
@@ -97,7 +98,7 @@ function Navbar({ openNav, setOpenNav }) {
               Rechercher
             </p>
           </a>
-          <a href="#Enseignants">
+          <a href="#Contact">
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 delay-200 lg:delay-0 ${
                 openNav ? "translate-x-0" : "translate-x-[-200%] lg:translate-x-0"
