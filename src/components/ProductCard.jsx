@@ -7,7 +7,7 @@ function ProductCard({img, name}) {
 
   return (
     <div  className='h-[370px] w-[300px] lg:w-[calc(100%/3-24px)] xl:w-[calc(100%/4-24px)] bg-white rounded-md shadow flex-shrink-0' >
-        <img src={img} alt="" className='w-full h-[200px] object-contain p-4' />
+        <img src={img} alt="" className='w-full h-[200px] object-center object-contain p-4' />
         <div className='flex flex-col gap-4 p-4 mt-4' >
             <p className='font-bold  text-[24px] text-[#009864] text-center' >{name}</p>
             <button onMouseEnter={()=> setHovered(true)} onMouseLeave={()=> setHovered(false)} className='group flex justify-center items-center gap-4 p-3 bg-white hover:bg-[#009864] border border-[#009864] rounded-md transition duration-300' >

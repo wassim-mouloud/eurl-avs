@@ -6,7 +6,6 @@ import Filter from '../components/Filter'
 
 function AllProducts({openNav, setOpenNav, products}) {
 
-    const cards =[1,2,3,4,5,6,7,8,9,1,2,3,4,5,6]  
     
   return (
     <div className='flex flex-col items-center w-screen' >
@@ -14,7 +13,7 @@ function AllProducts({openNav, setOpenNav, products}) {
         <div className='w-[90vw] flex flex-col items-center lg:items-start' >
             <h1 className='text-center lg:text-left my-6 font-bold text-[24px]' >Nos Produits</h1>
             <Filter/>
-            <div className='flex flex-wrap justify-center gap-4 mx-auto lg:justify-start' >
+            <div className='flex flex-wrap justify-center w-full gap-4 mx-auto lg:justify-start' >
                 {products.map(product=>{
                     return(
                         <ProductCard img={product.imgUrl} name={product.name}  />
