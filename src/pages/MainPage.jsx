@@ -7,7 +7,6 @@ import Contact from '../components/Contact'
 
 function MainPage({openNav, setOpenNav}) {
 
-  const [open, setOpen] = useState(false)
 
   return (
     <div className='' >

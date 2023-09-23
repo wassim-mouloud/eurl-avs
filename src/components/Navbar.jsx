@@ -111,7 +111,7 @@ function Navbar({ openNav, setOpenNav }) {
       </div>
       <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex':'hidden'}`} >
             <img src="/images/search.png" alt="" className="w-7 h-7" />
-            <input ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#17a841] text-black font-semibold  text-[20px]  p-4  `}/>
+            <input ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
       </motion.div>
     </div>
   );
