@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import '../App.css'
+import { Link } from 'react-router-dom'
 
-function ProductCard({img, name}) {
+function ProductCard({img, name, id}) {
 
   const [hovered, setHovered] = useState(false)
 
   return (
-    <div  className='h-[380px] w-[300px] lg:w-[calc(100%/3-24px)] xl:w-[calc(100%/4-24px)] bg-white rounded-md shadow flex-shrink-0' >
+    <Link to={`/ProductDetail/${id}`} className='h-[380px] w-[300px] lg:w-[calc(100%/3-24px)] xl:w-[calc(100%/4-24px)] bg-white rounded-md shadow flex-shrink-0' >
         <img src={img} alt="" className='w-full h-[220px] object-contain' />
         <div className='flex flex-col gap-4 p-4 mt-4' >
             <p className='font-bold  text-[24px] text-[#009864] text-center' >{name}</p>
@@ -15,7 +16,7 @@ function ProductCard({img, name}) {
                 <p className='font-semibold text-[#009864] group-hover:text-white' >Plus de Détail</p>
             </button>
         </div>
-    </div>
+    </Link>
   )
 }
 
