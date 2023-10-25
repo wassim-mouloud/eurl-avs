@@ -36,7 +36,7 @@ function Hero() {
           className="lg:w-[450px] xl:w-[610px] flex flex-col items-center gap-6 lg:items-start "
         >
           <motion.h1 className="text-black text-center lg:text-left font-bold text-[28px] md:text-[36px] lg:text-[32px] xl:text-[42px] ">
-            <span className="text-[#17a841]" >Algerian Veterenary service : Toujours</span > au service de la <span className="text-[#17a841]" >profession</span>
+          Algerian Veterinary service : <span className="text-[#17a841]" > Toujours</span > au service de la <span className="text-[#17a841]" >profession</span>
           </motion.h1>
           <motion.p className="text-center  lg:text-left text-[#2F4858] text-[12px] md:text-[16px] lg:text-[16px]  font-normal ">
                Chez AVS nous sommes passionnés par la santé et le bien-être des animaux. Nous sommes fiers d'être votre partenaire de confiance en matière de distribution de médicaments vétérinaires de qualité supérieure. Notre engagement envers la santé animale et notre expérience de 25 ans font de nous un acteur clé dans le marché vétérinaire Algérien .
