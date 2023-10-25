@@ -22,6 +22,7 @@ function Filter({category, setCategory}) {
           <FilterItem open={open} category='Solution Orale' handleClick = {handleClick} />
           <FilterItem open={open} category='Poudre Orale' handleClick = {handleClick} />
           <FilterItem open={open} category='Vaccins' handleClick = {handleClick} />
+          <FilterItem open={open} category='Suspension injectable' handleClick = {handleClick} />
         </div>
     </div>
 

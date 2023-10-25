@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import ProductCard from '../components/ProductCard'
 import CategoryButton from '../components/CategoryButton'
 import Filter from '../components/Filter'
+import Contact from '../components/Contact'
 
 function AllProducts({openNav, setOpenNav, products}) {
 
@@ -48,6 +49,7 @@ function AllProducts({openNav, setOpenNav, products}) {
                 })}
             </div>
         </div>
+        <Contact />
     </div>
   )
 }
