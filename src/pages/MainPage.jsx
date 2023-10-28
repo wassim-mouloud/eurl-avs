@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import ProduitsUne from '../components/ProduitsUne'
 import Why from '../components/Why'
 import Contact from '../components/Contact'
+import SocialMedia from '../components/SocialMedia'
 
 function MainPage({openNav, setOpenNav}) {
 
@@ -14,6 +15,7 @@ function MainPage({openNav, setOpenNav}) {
         <Hero/>
         <Why/>
         <Contact/>
+        <SocialMedia/>
     </div>
   )
 }
