@@ -4,6 +4,7 @@ import { doc, getDoc} from "firebase/firestore";
 import {db} from '../config/firebase'
 import Navbar from '../components/Navbar';
 import Contact from '../components/Contact';
+import SocialMedia from '../components/SocialMedia';
 
 function ProductDetail({openNav, setOpenNav}) {
 
@@ -71,6 +72,7 @@ function ProductDetail({openNav, setOpenNav}) {
             </div>
         </div>
         <Contact />
+        <SocialMedia/>
     </div>
   )
 }
