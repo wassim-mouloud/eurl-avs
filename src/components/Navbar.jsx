@@ -2,9 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import "../App.css";
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
-function Navbar({ openNav, setOpenNav }) {
+import Searched from "./Searched";
+function Navbar({ openNav, setOpenNav, products }) {
 
   const [openSearch, setOpenSearch]= useState(false)
+  const [input, setInput] = useState("")
+  const [filtered, setFiltered] = useState([])
   const sleep= ms=> new Promise(resolve => setTimeout(resolve, ms))
   const appear ={
     hidden: { opacity: 0},
@@ -30,17 +33,33 @@ function Navbar({ openNav, setOpenNav }) {
       mobileInputElement?.current.focus();
     }
   }, [openSearch]);
+  
+  useEffect(() => {
+    if (input && products) {
+      setFiltered(products.filter(product => product.name.toLowerCase() === input.toLowerCase()));
+    } else {
+      setFiltered([]); 
+    }
+
+  }, [input, products]);
+
+  useEffect(()=>{
+    console.log(input)
+  }, [input])
+
 
 
 
   return (
     <div className={`bg-white ${openSearch?'lg:bg-[#f5f5f7] h-screen':''}  transition-all duration-[700ms] hover:flex-col gap-3 ${openSearch?'h-400px':'h-[100px]'} z-[99]`} >
       <div className="relative h-[100px] w-screen  flex p-4 lg:p-3 justify-between items-center ">
-        <img
-          className="h-[50px] ml-5 md:h-[60px] z-[99] p-1"
-          src="/images/avs.png"
-          alt=""
-        />
+        <Link to='/' onClick={() => setOpenNav(false)} >
+          <img
+            className="h-[50px] ml-5 md:h-[60px] z-[99] p-1"
+            src="/images/avs.png"
+            alt=""
+          />
+        </Link>
         <div
           className={`flex flex-col gap-1 w-[30px] cursor-pointer lg:hidden z-[99]`}
           onClick={clickBurger}>
@@ -109,10 +128,23 @@ function Navbar({ openNav, setOpenNav }) {
           </a>
         </div>
       </div>
-      <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex':'hidden'}`} >
-            <img src="/images/search.png" alt="" className="w-7 h-7" />
-            <input ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
-      </motion.div>
+      <div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
+      </div>
+      {/* <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+            <div className="flex items-center w-full gap-2" >
+              <img src="/images/search.png" alt="" className="w-7 h-7" />
+              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
+            </div>
+            <div className="flex flex-col gap-3" >
+              {filtered.map((prod)=>{
+                return(
+                  <Searched name = {prod.name} img = {prod.imgUrl} />
+                ) 
+              })}
+            </div>
+            
+      </motion.div> */}
     </div>
   );
 }

@@ -6,12 +6,12 @@ import Why from '../components/Why'
 import Contact from '../components/Contact'
 import SocialMedia from '../components/SocialMedia'
 
-function MainPage({openNav, setOpenNav}) {
+function MainPage({openNav, setOpenNav, products}) {
 
 
   return (
     <div className='' >
-        <Navbar openNav={openNav} setOpenNav={setOpenNav} />
+        <Navbar openNav={openNav} setOpenNav={setOpenNav} products={products} />
         <Hero/>
         <Why/>
         <Contact/>

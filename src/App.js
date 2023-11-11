@@ -38,7 +38,7 @@ useEffect(()=>{
   return (
     <div className="relative">
       <Routes>
-        <Route path='/' element={<MainPage openNav={openNav} setOpenNav={setOpenNav} />}></Route>
+        <Route path='/' element={<MainPage openNav={openNav} setOpenNav={setOpenNav} products={products} />}></Route>
         <Route path='/AllProducts' element={<AllProducts openNav={openNav} setOpenNav={setOpenNav} products={products} />}></Route>
         <Route path='/AddProduct' element={<AddProduct openNav={openNav} setOpenNav={setOpenNav} productsCollectionRef={productsCollectionRef} getProducts={getProducts} />}></Route>
         <Route path='ProductDetail/:id' element={<ProductDetail openNav={openNav} setOpenNav={setOpenNav}/>} ></Route>

@@ -13,7 +13,6 @@ function AllProducts({openNav, setOpenNav, products}) {
 
     useEffect(()=>{
         setFiltered(products)
-        console.log(products)
     }, [products])
 
 
@@ -22,7 +21,6 @@ function AllProducts({openNav, setOpenNav, products}) {
         const filterProducts = (category) => {
           if (category!== "Tous les produits") {
             const lowerCategory = category.toLowerCase().trim();
-            console.log(lowerCategory)
             const filteredProducts = products.filter(product => product.category.toLowerCase().trim() === lowerCategory);
             setFiltered(filteredProducts);
           } else {
@@ -43,9 +41,9 @@ function AllProducts({openNav, setOpenNav, products}) {
             <h1 className='text-center lg:text-left my-6 font-bold text-[24px]' >Nos Produits</h1>
             <Filter category={category} setCategory={setCategory} />
             <div className='flex flex-wrap justify-center w-full gap-4 mx-auto lg:justify-start' >
-                {filtered.map(product=>{
+                {filtered.map((product, i)=>{
                     return(
-                        <ProductCard img={product.imgUrl} name={product.name} id= {product.id}  />
+                        <ProductCard key= {i} img={product.imgUrl} name={product.name} id= {product.id}  />
                     )
                 })}
             </div>
