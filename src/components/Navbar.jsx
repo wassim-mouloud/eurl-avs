@@ -36,7 +36,7 @@ function Navbar({ openNav, setOpenNav, products }) {
   
   useEffect(() => {
     if (input && products) {
-      setFiltered(products.filter(product => product.name.toLowerCase() === input.toLowerCase()));
+      setFiltered(products.filter(product => product.name.toLowerCase().startsWith(input.toLowerCase())));
     } else {
       setFiltered([]); 
     }
@@ -44,7 +44,7 @@ function Navbar({ openNav, setOpenNav, products }) {
   }, [input, products]);
 
   useEffect(()=>{
-    console.log(input)
+    console.log(filtered)
   }, [input])
 
 
@@ -90,6 +90,19 @@ function Navbar({ openNav, setOpenNav, products }) {
             <img src="/images/search.png" alt="" className="w-7 h-7" />
             <input ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#17a841] text-black font-semibold  text-[20px]  p-4  `}/>
           </div>
+          <div className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+            <div className="flex items-center w-full gap-2" >
+              <img src="/images/search.png" alt="" className="w-7 h-7" />
+              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
+            </div>
+            <div className="flex flex-col w-full gap-3" >
+              {filtered.map((prod)=>{
+                return(
+                  <Searched name = {prod.name} img = {prod.imgUrl} />
+                ) 
+              })}
+            </div>
+          </div>
           <Link to='/' onClick={() => setOpenNav(false)} className="" >
             <p
               className={`nav-element relative text-black lg:text-gray-600 transition-all lg:duration-200 lg:hover:text-black text-[20px] lg:text-[16px] font-bold  cursor-pointer duration-500 ${
@@ -128,23 +141,22 @@ function Navbar({ openNav, setOpenNav, products }) {
           </a>
         </div>
       </div>
-      <div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+      {/* <div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
               <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
-      </div>
-      {/* <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+      </div> */}
+      <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
             <div className="flex items-center w-full gap-2" >
               <img src="/images/search.png" alt="" className="w-7 h-7" />
-              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
+              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
             </div>
-            <div className="flex flex-col gap-3" >
+            <div className="flex flex-col w-full gap-3" >
               {filtered.map((prod)=>{
                 return(
                   <Searched name = {prod.name} img = {prod.imgUrl} />
                 ) 
               })}
             </div>
-            
-      </motion.div> */}
+      </motion.div>
     </div>
   );
 }
