@@ -36,7 +36,7 @@ function AllProducts({openNav, setOpenNav, products}) {
     
   return (
     <div className='flex flex-col items-center w-screen' >
-        <Navbar openNav={openNav} setOpenNav={setOpenNav} />
+        <Navbar openNav={openNav} setOpenNav={setOpenNav} products={products} />
         <div className='w-[90vw] flex flex-col items-center lg:items-start' >
             <h1 className='text-center lg:text-left my-6 font-bold text-[24px]' >Nos Produits</h1>
             <Filter category={category} setCategory={setCategory} />

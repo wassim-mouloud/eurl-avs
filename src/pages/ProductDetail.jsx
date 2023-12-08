@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import Contact from '../components/Contact';
 import SocialMedia from '../components/SocialMedia';
 
-function ProductDetail({openNav, setOpenNav}) {
+function ProductDetail({openNav, setOpenNav, products}) {
 
     const [product, setProduct] = useState({})
     const {id} = useParams()
@@ -27,7 +27,7 @@ function ProductDetail({openNav, setOpenNav}) {
 
   return (
     <div>
-        <Navbar openNav={openNav} setOpenNav={setOpenNav} />
+        <Navbar openNav={openNav} setOpenNav={setOpenNav} products={products} />
         <div className='flex flex-col items-center justify-center gap-6 ' >
             <img src={product.imgUrl} alt="" className='w-[80vw] sm:w-[300px] md:w-[400px] lg:w-[400px] xl:w-[420px] object-contain' />
             <div className='flex flex-col gap-3 p-4' >

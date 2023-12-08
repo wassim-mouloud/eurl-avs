@@ -40,7 +40,6 @@ function Navbar({ openNav, setOpenNav, products }) {
     } else {
       setFiltered([]); 
     }
-
   }, [input, products]);
 
   useEffect(()=>{
@@ -51,7 +50,7 @@ function Navbar({ openNav, setOpenNav, products }) {
 
 
   return (
-    <div className={`bg-white ${openSearch?'lg:bg-[#f5f5f7] h-screen':''}  transition-all duration-[700ms] hover:flex-col gap-3 ${openSearch?'h-400px':'h-[100px]'} z-[99]`} >
+    <div className={` ${openSearch?'bg-[#f5f5f7] h-screen':'h-[100px] bg-white'}  transition-all duration-[700ms] hover:flex-col gap-3  z-[99]`} >
       <div className="relative h-[100px] w-screen  flex p-4 lg:p-3 justify-between items-center ">
         <Link to='/' onClick={() => setOpenNav(false)} >
           <img
@@ -83,22 +82,18 @@ function Navbar({ openNav, setOpenNav, products }) {
       
       
         <div
-          className={`absolute lg:static top-0 left-0  bg-white ${openSearch?'lg:bg-[#f5f5f7]':''}   ${openSearch?'block lg:flex': 'flex'} flex-col lg:flex-row items-center justify-center lg:justify-end lg:pr-10 w-screen lg:w-[60%] h-screen lg:h-full gap-10 transition-transform lg:transition-all  duration-500 lg:duration-[700ms]  ${
+          className={`absolute lg:static top-0 left-0   ${openSearch?'bg-[#f5f5f7]':'bg-white'} flex  flex-col lg:flex-row items-center justify-center lg:justify-end lg:pr-10 w-screen lg:w-[60%] h-screen lg:h-full gap-10 transition-transform lg:transition-all  duration-500 lg:duration-[700ms]  ${
             openNav ? "translate-y-0" : "translate-y-[-100%] lg:translate-y-0"
           }`} >
-          <div className={`bg-white   w-[350px] sm:w-[450px] md:w-[650px] h-[70px] mt-[120px] mx-auto flex items-center gap-2 ${openSearch?'block lg:hidden':'hidden'}`} >
-            <img src="/images/search.png" alt="" className="w-7 h-7" />
-            <input ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#17a841] text-black font-semibold  text-[20px]  p-4  `}/>
-          </div>
-          <div className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+          <div className={` w-[500px] h-[70px]  mx-auto  items-center gap-2  ${openSearch?'lg:hidden flex flex-col gap-2':'hidden'}`} >
             <div className="flex items-center w-full gap-2" >
               <img src="/images/search.png" alt="" className="w-7 h-7" />
-              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
+              <input onChange={(e)=> setInput(e.target.value)}  ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
             </div>
             <div className="flex flex-col w-full gap-3" >
               {filtered.map((prod)=>{
                 return(
-                  <Searched name = {prod.name} img = {prod.imgUrl} />
+                  <Searched name = {prod.name} img = {prod.imgUrl} id={prod.id} setOpenNav={setOpenNav} />
                 ) 
               })}
             </div>
@@ -141,10 +136,8 @@ function Navbar({ openNav, setOpenNav, products }) {
           </a>
         </div>
       </div>
-      {/* <div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
-              <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold  text-[20px]  p-4  `}/>
-      </div> */}
-      <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 ${openSearch?'hidden lg:flex flex-col':'hidden'}`} >
+
+      <motion.div initial='hidden' whileInView='show' variants={appear} className={`w-[1000px] h-[70px]  mx-auto  items-center gap-2 hidden ${openSearch?'lg:flex flex-col':''}`} >
             <div className="flex items-center w-full gap-2" >
               <img src="/images/search.png" alt="" className="w-7 h-7" />
               <input onChange={(e)=> setInput(e.target.value)}  ref={inputElement} type="text" placeholder= "Rechercher un produit" className={` w-[calc(100%-28px-8px)] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
@@ -152,7 +145,7 @@ function Navbar({ openNav, setOpenNav, products }) {
             <div className="flex flex-col w-full gap-3" >
               {filtered.map((prod)=>{
                 return(
-                  <Searched name = {prod.name} img = {prod.imgUrl} />
+                  <Searched name = {prod.name} img = {prod.imgUrl} id={prod.id} />
                 ) 
               })}
             </div>
