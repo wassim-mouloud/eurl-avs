@@ -85,12 +85,12 @@ function Navbar({ openNav, setOpenNav, products }) {
           className={`overflow-x-hidden absolute lg:static top-0 left-0   ${openSearch?'bg-[#f5f5f7]':'bg-white'} flex  flex-col lg:flex-row items-center justify-center lg:justify-end lg:pr-10 w-screen lg:w-[60%] h-screen lg:h-full gap-10 transition-transform lg:transition-all  duration-500 lg:duration-[700ms]  ${
             openNav ? "translate-y-0" : "translate-y-[-100%] lg:translate-y-0"
           }`} >
-          <div className={`w-[500px] h-[70px]  mx-auto  items-center gap-2  ${openSearch?'lg:hidden flex flex-col gap-2':'hidden'}`} >
-            <div className="flex items-center w-full gap-2" >
+          <div className={`w-screen flex-col gap-2 ${openSearch?'lg:hidden flex ':'hidden'} ml-5`} >
+            <div className="flex items-center w-[90vw] gap-2" >
               <img src="/images/search.png" alt="" className="w-5 h-5 lg:w-7 lg:h-7"/>
               <input onChange={(e)=> setInput(e.target.value)}  ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={`w-[250px] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
             </div>
-            <div className="flex flex-col w-full gap-3" >
+            <div className="flex flex-col w-[90vw] gap-1 ml-[28px]" >
               {filtered.map((prod)=>{
                 return(
                   <Searched name = {prod.name} img = {prod.imgUrl} id={prod.id} setOpenNav={setOpenNav} />
