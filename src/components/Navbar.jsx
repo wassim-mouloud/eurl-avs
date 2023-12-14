@@ -88,7 +88,7 @@ function Navbar({ openNav, setOpenNav, products }) {
           <div className={`w-screen flex-col gap-2 ${openSearch?'lg:hidden flex ':'hidden'} ml-5`} >
             <div className="flex items-center w-[90vw] gap-2" >
               <img src="/images/search.png" alt="" className="w-5 h-5 lg:w-7 lg:h-7"/>
-              <input onChange={(e)=> setInput(e.target.value)}  ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={`w-[250px] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
+              <input onChange={(e)=> setInput(e.target.value)}  ref={mobileInputElement} type="text" placeholder= "Rechercher un produit" className={`w-[90%] outline-[#009864] text-black font-semibold text-[20px] p-4`}/>
             </div>
             <div className="flex flex-col w-[90vw] gap-1 ml-[28px]" >
               {filtered.map((prod)=>{
